@@ -7,6 +7,17 @@ on:
   pull_request:
     branches:
       - master  # Trigger on pull request to main
+  workflow_dispatch:  # Allow manual triggering via the GitHub UI
+    inputs:
+     environment:
+        description: 'Select the environment to test in'
+        required: true
+        default: 'staging'  # Default value
+        type: choice
+        options:
+        - staging
+        - production
+        - development
 
 jobs:
   test:
@@ -35,3 +46,8 @@ jobs:
       - name: Run RSpec tests
         run: |
           rspec spec/apitests.rb 
+
+          
+          - name: Show environment
+          run: |
+            echo "Running tests on environment: ${{ github.event.inputs.environment }}"
