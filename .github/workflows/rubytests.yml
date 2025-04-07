@@ -2,12 +2,12 @@ name: Ruby Test Workflow
 
 on:
   push:
-    
     branches:
       - origin master  
   pull_request:
     branches:
       - origin master  
+  
   workflow_dispatch:  
     inputs:
       environment:
