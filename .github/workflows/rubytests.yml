@@ -3,10 +3,10 @@ name: Ruby Test Workflow
 on:
   push:
     branches:
-      - main  # Run the action on push to main, change if you're using another branch
+      - master  # Run the action on push to main, change if you're using another branch
   pull_request:
     branches:
-      - main  # Trigger on pull request to main
+      - master  # Trigger on pull request to main
 
 jobs:
   test:
