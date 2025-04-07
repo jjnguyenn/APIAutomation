@@ -3,25 +3,26 @@ name: Ruby Test Workflow
 on:
   push:
     branches:
-      - master  # Run the action on push to main, change if you're using another branch
+      - master 
   pull_request:
     branches:
-      - master  # Trigger on pull request to main
-  workflow_dispatch:  # Allow manual triggering via the GitHub UI
+      - master 
+  workflow_dispatch:  
     inputs:
-     environment:
+      environment:
         description: 'Select the environment to test in'
         required: true
-        default: 'staging'  # Default value
+        default: 'staging'  
         type: choice
         options:
-        - staging
-        - production
-        - development
+          - staging
+          - production
+          - development
 
 jobs:
   test:
     runs-on: ubuntu-latest  
+
     steps:
       
       - name: Checkout code
@@ -34,20 +35,15 @@ jobs:
           ruby-version: '3.0'  
           bundler-cache: true  
 
-
+      
       - name: Install dependencies
         run: |
-          gem install rspec          
-          gem install rest-client      
-          gem install yaml           
-          gem install json   
-          
+          gem install rspec          # Install RSpec for running tests
+          gem install rest-client     # Install rest-client for API calls
+          gem install yaml           # Install yaml (if needed)
+          gem install json           # Install json (if needed)
 
+      
       - name: Run RSpec tests
         run: |
-          rspec spec/apitests.rb 
-
-          
-          - name: Show environment
-          run: |
-            echo "Running tests on environment: ${{ github.event.inputs.environment }}"
+          rspec spec/apitests.rb  # Run your specific test file
