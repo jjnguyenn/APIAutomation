@@ -3,21 +3,21 @@ name: Ruby Test Workflow
 on:
   push:
     branches:
-      - master 
+      - master  
   pull_request:
     branches:
-      - master 
+      - master  
   workflow_dispatch:  
     inputs:
-     environment:
+      environment:
         description: 'Select the environment to test in'
         required: true
-        default: 'staging'  
+        default: 'production'  
         type: choice
         options:
-        - staging
-        - production
-        - development
+          - staging
+          - production
+          - development
 
 jobs:
   test:
@@ -28,22 +28,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-    
+      
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0'  
-          bundler-cache: true  
+          ruby-version: '3.0'
 
       
       - name: Install dependencies
         run: |
-          gem install rspec          # Install RSpec for running tests
-          gem install rest-client     # Install rest-client for API calls
-          gem install yaml           # Install yaml (if needed)
-          gem install json           # Install json (if needed)
+          gem install rspec
+          gem install rest-client
+          gem install yaml
+          gem install json
 
       
       - name: Run RSpec tests
         run: |
-          rspec spec/apitests.rb  # Run your specific test file
+          rspec spec/apitests.rb
