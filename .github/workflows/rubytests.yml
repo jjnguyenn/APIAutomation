@@ -1,0 +1,35 @@
+name: Ruby Test Workflow
+
+on:
+  push:
+    branches:
+      - main  # Run the action on push to main, change if you're using another branch
+  pull_request:
+    branches:
+      - main  # Trigger on pull request to main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  
+    steps:
+      
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+    
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'  
+          bundler-cache: true  
+
+
+      - name: Install dependencies
+        run: |
+          gem install bundler  # Make sure Bundler is installed
+          bundle install       # Install the gems specified in Gemfile
+
+
+      - name: Run RSpec tests
+        run: |
+          bundle exec rspec spec/apitests.rb  # Run your specific test file
