@@ -26,11 +26,12 @@ jobs:
 
       - name: Install dependencies
         run: |
-          gem install rest-client  
-          gem install yaml
-          gem install json
+          gem install rspec          
+          gem install rest-client      
+          gem install yaml           
+          gem install json   
           
 
       - name: Run RSpec tests
         run: |
-          bundle exec rspec spec/apitests.rb  # Run your specific test file
+          rspec spec/apitests.rb 
