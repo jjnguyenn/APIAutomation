@@ -7,18 +7,15 @@ on:
   pull_request:
     branches:
       - master  
-      
   workflow_dispatch:  
     inputs:
       environment:
-        description: 'Select the environment to test in'
+        description: 'Run workflow'
         required: true
         default: 'production'  
-        type: choice
-        options:
-          - staging
-          - production
-          - development
+        
+        
+          
 
 jobs:
   test:
