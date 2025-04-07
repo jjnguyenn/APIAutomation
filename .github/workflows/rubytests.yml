@@ -9,15 +9,15 @@ on:
       - master 
   workflow_dispatch:  
     inputs:
-      environment:
+     environment:
         description: 'Select the environment to test in'
         required: true
         default: 'staging'  
         type: choice
         options:
-          - staging
-          - production
-          - development
+        - staging
+        - production
+        - development
 
 jobs:
   test:
