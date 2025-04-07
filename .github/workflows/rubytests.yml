@@ -26,9 +26,10 @@ jobs:
 
       - name: Install dependencies
         run: |
-          gem install bundler  # Make sure Bundler is installed
-          bundle install       # Install the gems specified in Gemfile
-
+          gem install rest-client  
+          gem install yaml
+          gem install json
+          
 
       - name: Run RSpec tests
         run: |
