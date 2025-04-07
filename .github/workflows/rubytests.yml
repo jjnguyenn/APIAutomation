@@ -3,10 +3,10 @@ name: Ruby Test Workflow
 on:
   push:
     branches:
-      - origin master  
+      - main  
   pull_request:
     branches:
-      - origin master  
+      - main  
   
   workflow_dispatch:  
     inputs:
