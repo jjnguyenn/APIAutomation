@@ -1,6 +1,4 @@
 # APIAutomation
-<<<<<<< HEAD
-Ruby RSpec API Automation with rest-client
-=======
-API Automation with rest-client base rest client
->>>>>>> master
+
+Ruby RSpec API Automation with rest-client, creating API calls out to a public API restful-booker.herokuapp.com 
+retrieving, creating, and deleting data utilizing POST, DELETE, GET methods
