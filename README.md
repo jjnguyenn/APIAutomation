@@ -11,7 +11,7 @@ You can clone the repository and run it locally but you need to ensure you have 
 
 The following configurations you'll need to run this locally after cloning
 
-   gem install rspec
-          gem install rest-client
-          gem install yaml
-          gem install json
+gem install rspec
+gem install rest-client
+gem install yaml
+gem install json
